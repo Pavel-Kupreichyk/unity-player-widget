@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unity-classes/unity-classes.iml" filepath="$PROJECT_DIR$/.idea/modules/unity-classes/unity-classes.iml" group="unity_player_widget/unity-classes" />
+      <module fileurl="file://$PROJECT_DIR$/unity_player_widget.iml" filepath="$PROJECT_DIR$/unity_player_widget.iml" group="unity_player_widget" />
+      <module fileurl="file://$PROJECT_DIR$/android/unity_player_widget_android.iml" filepath="$PROJECT_DIR$/android/unity_player_widget_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/android/unity_player_widget_example_android.iml" filepath="$PROJECT_DIR$/example/android/unity_player_widget_example_android.iml" />
+    </modules>
+  </component>
+</project>

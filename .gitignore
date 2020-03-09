@@ -1,0 +1,11 @@
+.DS_Store
+.dart_tool/
+
+.packages
+.pub/
+
+example/unity
+example/android/unityLibrary
+example/ios/unityLibrary
+
+build/
