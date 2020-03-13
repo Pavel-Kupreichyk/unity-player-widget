@@ -13,12 +13,21 @@ public class SwiftUnityPlayerWidgetPlugin: NSObject, FlutterPlugin {
         switch call.method {
         case "init_unity":
             guard let args = call.arguments as? Dictionary<String, Any>,
-            let pauseDelay = args["pauseDelay"] as? Int32 else {
+            let pauseDelay = args["pauseDelay"] as? Int32,
+            let autoPause = args["autoPause"] as? Bool else {
                 result(false)
                 return
             }
             
-            UnityPlayer.initUnityPlayer(CommandLine.argc, argv: CommandLine.unsafeArgv, pauseDelay: pauseDelay)
+            UnityPlayer.initUnityPlayer(CommandLine.argc, argv: CommandLine.unsafeArgv, pauseDelay: pauseDelay, isAutoPauseEnabled: autoPause)
+            result(true)
+        case "start_unity":
+            
+            UnityPlayer.startUnity()
+            result(true)
+        case "stop_unity":
+            
+            UnityPlayer.stopUnity()
             result(true)
         case "unity_send_msg":
             guard let args = call.arguments as? Dictionary<String, String> else {
@@ -44,14 +53,26 @@ public class UnityPlayerWidgetFactory: NSObject, FlutterPlatformViewFactory {
 
 public class UnityPlayerView: NSObject, FlutterPlatformView {
     final var viewId: Int64
+    var disposeWorker: DispatchWorkItem?
+    
     
     init(withFrame frame: CGRect, viewIdentifier viewId: Int64) {
         self.viewId = viewId
-        UnityPlayer.addViewId(viewId)
+        if(UnityPlayer.isAutoPauseEnabled()) {
+            disposeWorker?.cancel()
+            DispatchQueue.main.async {
+                UnityPlayer.addViewId(viewId)
+            }
+        }
     }
     
     deinit {
-        UnityPlayer.removeViewId(viewId)
+        if(UnityPlayer.isAutoPauseEnabled()) {
+            let id = viewId
+            disposeWorker = DispatchWorkItem {UnityPlayer.removeViewId(id)}
+            DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(Int(UnityPlayer.getPauseDelay())),
+                                          execute: disposeWorker!)
+        }
     }
 
     public func view() -> UIView {
