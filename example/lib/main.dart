@@ -12,28 +12,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/': (context) => Menu(),
-        '/unity': (context) => UnityScreen(),
+      home: Menu(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/':
+            return MaterialPageRoute(builder: (_) => Menu());
+          case '/unity':
+            return UnityRoute(builder: (_) => UnityScreen());
+          default:
+            throw '';
+        }
       },
     );
   }
 }
 
-class UnityScreen extends StatefulWidget {
-  @override
-  _UnityScreenState createState() => _UnityScreenState();
-}
-
-class _UnityScreenState extends State<UnityScreen> {
-  @override
-  void initState() {
-    //TODO: replace delayed future
-    Future.delayed(Duration(milliseconds: 300), () => UnityPlayer.resume(PlayerPlatform.iOS));
-    super.initState();
-  }
-
+class UnityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -100,5 +94,30 @@ class Menu extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class UnityRoute extends MaterialPageRoute {
+  UnityRoute({
+    @required WidgetBuilder builder,
+    RouteSettings settings,
+    bool maintainState = true,
+    bool fullscreenDialog = false,
+  }) : super(
+      builder: builder,
+      settings: settings,
+      maintainState: maintainState,
+      fullscreenDialog: fullscreenDialog);
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        UnityPlayer.resume(PlayerPlatform.iOS);
+      }
+    });
+    return super
+        .buildTransitions(context, animation, secondaryAnimation, child);
   }
 }
