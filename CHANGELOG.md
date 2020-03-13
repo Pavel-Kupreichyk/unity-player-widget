@@ -1,3 +1,7 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Android and iOS support added.
+
+## 0.0.2
+
+* Made auto-pause optional (to prevent iOS freeze).

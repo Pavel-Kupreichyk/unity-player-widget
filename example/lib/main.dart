@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:unity_player_widget/unity_player_widget.dart';
-import 'dart:io' show Platform;
 
 void main() async {
   runApp(MyApp());
@@ -22,42 +21,41 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class UnityScreen extends StatelessWidget {
+class UnityScreen extends StatefulWidget {
+  @override
+  _UnityScreenState createState() => _UnityScreenState();
+}
+
+class _UnityScreenState extends State<UnityScreen> {
+  @override
+  void initState() {
+    //TODO: replace delayed future
+    Future.delayed(Duration(milliseconds: 300), () => UnityPlayer.resume(PlayerPlatform.iOS));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Unity Player Demo'),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Container(
-                height: 500,
-                child: UnityPlayer(
-                  willCreateUnityPlayer: () {
-                    if (Platform.isIOS) {
-//                        UnityPlayer.sendMessage(
-//                            objectName: 'MessageReceiver',
-//                            method: 'ChangeARSessionState',
-//                            message: 'true');
-                    }
-                  },
-                  willDisposeUnityPlayer: () {
-                    if (Platform.isIOS) {
-//                        UnityPlayer.sendMessage(
-//                            objectName: 'MessageReceiver',
-//                            method: 'ChangeARSessionState',
-//                            message: 'false');
-                    }
-                  },
-                ),
+    return WillPopScope(
+      onWillPop: () async {
+        await UnityPlayer.pause(PlayerPlatform.iOS);
+        return true;
+      },
+      child: Scaffold(
+        body: Stack(
+          children: <Widget>[
+            UnityPlayer(),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 40, 0, 0),
+              child: IconButton(
+                icon: Icon(Icons.arrow_back, size: 30, color: Colors.white),
+                onPressed: () async {
+                  await UnityPlayer.pause(PlayerPlatform.iOS);
+                  Navigator.pop(context);
+                },
               ),
-              Container(color: Colors.cyan, height: 500),
-              Container(color: Colors.deepPurple, height: 500),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
@@ -94,7 +92,9 @@ class Menu extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
               ),
               color: Colors.grey[200],
-              onPressed: () => Navigator.pushNamed(context, '/unity'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/unity');
+              },
             ),
           ),
         ],

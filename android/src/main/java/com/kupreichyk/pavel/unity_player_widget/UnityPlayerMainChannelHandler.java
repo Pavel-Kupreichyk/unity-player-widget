@@ -13,6 +13,12 @@ public class UnityPlayerMainChannelHandler implements MethodChannel.MethodCallHa
                 FlutterUnityPlayer.enablePlayer(isStatusBarEnabled, pauseDelay);
                 result.success(true);
                 break;
+            case "start_unity":
+                //TODO: implement start
+                result.success(true);
+            case "stop_unity":
+                //TODO: implement pause
+                result.success(true);
             case "unity_send_msg":
                 FlutterUnityPlayer.sendMessage(
                         methodCall.argument("object").toString(),

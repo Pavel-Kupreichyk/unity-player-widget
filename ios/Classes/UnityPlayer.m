@@ -16,8 +16,11 @@ int64_t currViewId = -1;
 
 int pauseDelay;
 
-+ (void)initUnityPlayer: (int)argc argv: (char**)argv pauseDelay: (int)delay {
+BOOL autoPauseStatus = false;
+
++ (void)initUnityPlayer: (int)argc argv: (char**)argv pauseDelay: (int)delay isAutoPauseEnabled: (BOOL)autoPause {
     pauseDelay = delay;
+    autoPauseStatus = autoPause;
     
     [UIApplication sharedApplication].keyWindow.windowLevel = UIWindowLevelNormal + 1;
     
@@ -38,6 +41,10 @@ int pauseDelay;
 
 + (int)getPauseDelay {
     return pauseDelay;
+}
+
++ (BOOL)isAutoPauseEnabled {
+    return autoPauseStatus;
 }
 
 + (UIView*)getUnityView {
