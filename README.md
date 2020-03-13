@@ -2,12 +2,25 @@
 
 A plugin that allows you to embed a Unity project in Flutter.
 
-## Getting Started
+# How to install
+## Preparation
+0. Add unity_player_widget plugin to your flutter project
+1. Create unity project
+2. Create a folder named ‘unity’ in flutter project
+3. Move created unity project to ‘unity’ folder
+Flutter project folder should look like this:
+├── android
+├── ios
+├── lib
+├── test
+├── unity
+│   └── <Your Unity Project>
+├── pubspec.yml
+├── README.md
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## Android
+
+## iOS
 
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
