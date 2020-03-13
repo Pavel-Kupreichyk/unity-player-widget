@@ -24,8 +24,12 @@ flutter:
   # be modified. They are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
   plugin:
-    androidPackage: com.kupreichyk.pavel.unity_player_widget
-    pluginClass: UnityPlayerWidgetPlugin
+    platforms:
+      android:
+        package: com.kupreichyk.pavel.unity_player_widget
+        pluginClass: UnityPlayerWidgetPlugin
+      ios:
+        pluginClass: UnityPlayerWidgetPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
