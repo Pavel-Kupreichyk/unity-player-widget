@@ -2,6 +2,9 @@
 
 A plugin that allows you to embed a Unity project in Flutter.
 
+# How to use
+In development, use an example for now.
+
 # How to install
 ## Preparation
 0. Add unity_player_widget plugin to your Flutter project.
