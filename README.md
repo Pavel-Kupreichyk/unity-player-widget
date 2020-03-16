@@ -33,17 +33,17 @@ Your flutter project folder should look like this:
 
   **!!!settings may vary depending on which Unity packages you use!!!**
 ```
-  Universal player settings:
+  Basic player settings:
     Scripting Backend -> IL2CPP
     ARMv7 -> TRUE
-    ARM64 -> TRUE**
+    ARM64 -> TRUE
 
 
   AR Foundation player settings:
     Minimum API Level -> 24
     Scripting Backend -> IL2CPP
     ARMv7 -> TRUE
-    ARM64 -> TRUE**
+    ARM64 -> TRUE
 
   Vuforia player settings:
     Scripting Backend -> IL2CPP
@@ -51,9 +51,9 @@ Your flutter project folder should look like this:
     ARM64 -> TRUE
     
   EasyAR player settings:
-    Auto Graphics API -> False
+    Auto Graphics API -> FALSE
     Graphics APIs -> OpenGLES2
-    Multithread Rendering -> False
+    Multithread Rendering -> FALSE
     Scripting Backend -> IL2CPP
     ARMv7 -> TRUE
     ARM64 -> TRUE
@@ -111,11 +111,11 @@ Add **android:screenOrientation="fullSensor"** as an activity attribute in andro
 
   **!!!settings may vary depending on which Unity packages you use!!!**
 ```
-  Universal player settings:
-    Metal API Validation -> False
+  Basic player settings:
+    Metal API Validation -> FALSE
     
   AR Foundation player settings:
-    Metal API Validation -> False
+    Metal API Validation -> FALSE
     Target Minimum iOS version -> 11.0
     Architecture -> ARM64
     
@@ -123,9 +123,9 @@ Add **android:screenOrientation="fullSensor"** as an activity attribute in andro
   (not tested yet)
     
   EasyAR player settings:
-    Auto Graphics API -> False
+    Auto Graphics API -> FALSE
     Graphics APIs -> Metal, OpenGLES2
-    Metal API Validation -> False
+    Metal API Validation -> FALSE
     Architecture -> Universal
 ```
 4. Select UnityPlayerWidget->Export iOS.
