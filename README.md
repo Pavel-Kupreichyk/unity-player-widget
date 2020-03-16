@@ -8,7 +8,7 @@ In development, use an example for now.
 # How to install
 ## Preparation
 0. Add unity_player_widget plugin to your Flutter project.
-1. Create a Unity project (or use existed).
+1. Create a 2019.3.* Unity project (or use existed).
 2. Download [Editor folder](https://github.com/Pavel-Kupreichyk/unity-player-widget/tree/master/Editor) and add it to your unity project.
 2. Create a folder named "unity" in the Flutter project.
 3. Move created Unity project to "unity" folder.
