@@ -95,6 +95,8 @@ Add **android:screenOrientation="fullSensor"** as an activity attribute in andro
 1. In Unity project go to File->Build settings
 2. Add at least 1 scene to the project
 3. Go to iOS Player Settings<br/>
+**(!!!settings may vary depending on which Unity packages you use!!!)**<br/>
+
   **Universal player settings:<br/>
     Metal API Validation -> False<br/>**
     
