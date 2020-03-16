@@ -81,7 +81,7 @@ dependencies {
     implementation project(':package4')
 }
 </pre>
-- Add buildTypes to android section:<br/>
+- Add buildTypes to android section:
 <pre>android {
 	//**//
 	buildTypes {
@@ -89,9 +89,9 @@ dependencies {
 	}
 }
 </pre>
-8. Go to android/settings.gradle<br/>
-- Include all created packages (first line of the file)<br/>
-Your include section should look like this:<br/>
+8. Go to android/settings.gradle
+- Include all created packages (first line of the file)
+Your include section should look like this:
 <pre>
 include ':app', ':package1', ':package2', ':package3', ':package4'
 </pre>
@@ -101,7 +101,7 @@ include ":unityLibrary"
 project(":unityLibrary").projectDir = file("./unityLibrary")
 </pre>
 9. minSdkVersion in android/app/build.gradle and android/unityLibrary/build.gradle must be equal (change minSdkVersion in android/app/build.gradle if they are not).
-10. **VUFORIA ONLY**
+10. **(VUFORIA ONLY)**
 Add **android:screenOrientation="fullSensor"** as an activity attribute in android/app/src/main/AndroidManifest.xml file.
 
 ## iOS
@@ -151,7 +151,7 @@ Add **android:screenOrientation="fullSensor"** as an activity attribute in andro
 <br />
 
 8. Go to Runner/Info.plist and set **io.flutter.embedded_views_preview -> YES**
-9. **AR ONLY**
+9. **(AR ONLY)**
 Go to Runner/Info.plist and set **Privacy - Camera Usage Description -> [Some description]**
-10. **EasyAR ONLY**
+10. **(EasyAR ONLY)**
 Go to Unity-iPhone -> UnityFramework and set **Enable Bitcode -> NO**
