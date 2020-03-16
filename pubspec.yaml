@@ -1,6 +1,6 @@
 name: unity_player_widget
 description: A plugin that allows you to embed a Unity project in Flutter.
-version: 0.1.0+2
+version: 0.1.0+3
 homepage: https://github.com/Pavel-Kupreichyk/unity-player-widget
 
 environment:
