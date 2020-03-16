@@ -124,8 +124,8 @@ Add **android:screenOrientation="fullSensor"** as an activity attribute in andro
 ![](images/photo3.png)
 ![](images/photo4.png)
 ![](images/photo5.png)<br/>
-8. Go to Runner/Info.plist and add **io.flutter.embedded_views_preview -> YES**
+8. Go to Runner/Info.plist and set **io.flutter.embedded_views_preview -> YES**
 9. **AR ONLY**<br/>
-Go to Runner/Info.plist and add **Privacy - Camera Usage Description -> [Some description]**
+Go to Runner/Info.plist and set **Privacy - Camera Usage Description -> [Some description]**
 10. **EasyAR ONLY**<br/>
 Go to Unity-iPhone -> UnityFramework and set **Enable Bitcode -> NO**
