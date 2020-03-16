@@ -30,35 +30,34 @@ Your flutter project folder should look like this:
 1. In Unity project go to File->Build settings
 2. Add at least 1 scene to the project
 3. Go to android Player Settings
-<br />
 
   **!!!settings may vary depending on which Unity packages you use!!!**
-  <br />
-  
-  **Universal player settings:
+```
+  Universal player settings:
     Scripting Backend -> IL2CPP
     ARMv7 -> TRUE
     ARM64 -> TRUE**
-    
-  **AR Foundation player settings:
+
+
+  AR Foundation player settings:
     Minimum API Level -> 24
     Scripting Backend -> IL2CPP
     ARMv7 -> TRUE
     ARM64 -> TRUE**
-    
-  **Vuforia player settings:
+
+  Vuforia player settings:
     Scripting Backend -> IL2CPP
     ARMv7 -> TRUE
-    ARM64 -> TRUE**
+    ARM64 -> TRUE
     
-  **EasyAR player settings:
+  EasyAR player settings:
     Auto Graphics API -> False
     Graphics APIs -> OpenGLES2
     Multithread Rendering -> False
     Scripting Backend -> IL2CPP
     ARMv7 -> TRUE
-    ARM64 -> TRUE**
-    
+    ARM64 -> TRUE
+ ```
 4. Select UnityPlayerWidget->Export Android
 5. In Flutter project go to android/unityLibrary/libs and create package for every aar or jar file in the folder.
 (If you use AndroidStudio, just right-click to your project, select New->Module->{Import .JAR/.AAR Package} and find aar or jar file in the libs folder).
@@ -109,28 +108,26 @@ Add **android:screenOrientation="fullSensor"** as an activity attribute in andro
 1. In Unity project go to File->Build settings
 2. Add at least 1 scene to the project
 3. Go to iOS Player Settings
-<br />
 
   **!!!settings may vary depending on which Unity packages you use!!!**
-  <br />
-  
-  **Universal player settings:
-    Metal API Validation -> False**
+```
+  Universal player settings:
+    Metal API Validation -> False
     
-  **AR Foundation player settings:
+  AR Foundation player settings:
     Metal API Validation -> False
     Target Minimum iOS version -> 11.0
-    Architecture -> ARM64**
+    Architecture -> ARM64
     
-  **Vuforia player settings:
-  (not tested yet)**
+  Vuforia player settings:
+  (not tested yet)
     
-  **EasyAR player settings:
+  EasyAR player settings:
     Auto Graphics API -> False
     Graphics APIs -> Metal, OpenGLES2
     Metal API Validation -> False
-    Architecture -> Universal**
-    
+    Architecture -> Universal
+```
 4. Select UnityPlayerWidget->Export iOS.
 5. Open Runner.xcworkspace with Xcode and add ios/unityLibrary/Unity-iPhone.xcodeproj to "Runner".
 
